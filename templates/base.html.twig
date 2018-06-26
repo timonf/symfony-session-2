@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.1/cosmo/bootstrap.min.css">
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-bottom: 1em">
+        <div class="container">
+            <span class="navbar-brand">Symfony Basics</span>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/vessels/create">Create vessel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                {% set message_id = 'message_' ~ random() %}
+                <div class="alert alert-dismissible alert-{{ label }}" id="{{ message_id }}">
+                    <button type="button" class="close" onclick="document.getElementById('{{ message_id }}').remove()">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        {% block body %}{% endblock %}
+    </div>
+</body>
+</html>
