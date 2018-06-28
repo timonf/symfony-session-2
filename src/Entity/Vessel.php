@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Vessel
 {
@@ -31,47 +32,47 @@ class Vessel
      */
     private $built;
 
-    public function getId(): ?int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getImo(): ?int
+    public function getImo()
     {
         return $this->imo;
     }
 
     public function setImo($imo)
     {
-        $this->imo = !$imo ? (int) $imo : null;
+        $this->imo = $imo;
     }
 
-    public function getName(): ?string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName($name): void
+    public function setName($name)
     {
-        $this->imo = !$name ? (string) $name : null;
+        $this->imo = $name;
     }
 
-    public function getCountry(): ?string
+    public function getCountry()
     {
         return $this->country;
     }
 
-    public function setCountry($country): void
+    public function setCountry($country)
     {
-        $this->country = !$country ? (string) $country : null;
+        $this->country = $country;
     }
 
-    public function getBuilt(): ?DateTime
+    public function getBuilt()
     {
         return $this->built;
     }
 
-    public function setBuilt(?DateTime $built): void
+    public function setBuilt($built)
     {
         $this->built = $built;
     }
