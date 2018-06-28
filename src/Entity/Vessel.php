@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+
 class Vessel
 {
     /**
@@ -23,6 +25,11 @@ class Vessel
      * @var string|null
      */
     private $country;
+
+    /**
+     * @var DateTime|null
+     */
+    private $built;
 
     public function getId(): ?int
     {
@@ -57,5 +64,15 @@ class Vessel
     public function setCountry($country): void
     {
         $this->country = !$country ? (string) $country : null;
+    }
+
+    public function getBuilt(): ?DateTime
+    {
+        return $this->built;
+    }
+
+    public function setBuilt(?DateTime $built): void
+    {
+        $this->built = $built;
     }
 }
